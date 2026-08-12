@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JLC2KiCadLib - Tauri GUI</title>
+    <script type="module" src="/main.js" defer></script>
+  </head>
+
+  <body>
+    <div class="app">
+      <header class="app-header">
+        <h1>JLC2KiCadLib</h1>
+        <p class="subtitle">Add JLCPCB components to registered KiCad libraries</p>
+      </header>
+
+      <main class="app-main">
+        <section class="panel">
+          <h2>Library Settings</h2>
+
+          <div class="form-group">
+            <label>Registered Output Directories</label>
+            <div class="list-box-wrapper">
+              <select id="dir-list" multiple size="6"></select>
+            </div>
+            <div class="button-row">
+              <button id="add-dir-btn" type="button">Add Directory</button>
+              <button id="remove-dir-btn" type="button" class="secondary">Remove Selected</button>
+            </div>
+          </div>
+
+          <div class="form-group checkbox">
+            <input type="checkbox" id="add-to-all" />
+            <label for="add-to-all">Add to all registered directories</label>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="symbol-lib">Symbol Library</label>
+              <input type="text" id="symbol-lib" placeholder="Empty = one file per component" />
+            </div>
+            <div class="form-group">
+              <label for="footprint-lib">Footprint Library</label>
+              <input type="text" id="footprint-lib" value="footprint" />
+            </div>
+            <div class="form-group">
+              <label for="symbol-lib-dir">Symbol Dir</label>
+              <input type="text" id="symbol-lib-dir" value="symbol" />
+            </div>
+            <div class="form-group">
+              <label for="model-dir">Model Dir</label>
+              <input type="text" id="model-dir" value="packages3d" />
+            </div>
+            <div class="form-group span-2">
+              <label for="model-base-variable">Model Base Var</label>
+              <input type="text" id="model-base-variable" />
+            </div>
+          </div>
+
+          <fieldset class="options-group">
+            <legend>Options</legend>
+            <div class="checkbox-row">
+              <div class="checkbox">
+                <input type="checkbox" id="create-footprint" checked />
+                <label for="create-footprint">Create Footprint</label>
+              </div>
+              <div class="checkbox">
+                <input type="checkbox" id="create-symbol" checked />
+                <label for="create-symbol">Create Symbol</label>
+              </div>
+              <div class="checkbox">
+                <input type="checkbox" id="skip-existing" />
+                <label for="skip-existing">Skip Existing</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="models">3D Model</label>
+              <select id="models">
+                <option value="STEP" selected>STEP</option>
+                <option value="WRL">WRL</option>
+                <option value="Both">Both</option>
+                <option value="None">None</option>
+              </select>
+            </div>
+          </fieldset>
+        </section>
+
+        <section class="panel">
+          <h2>Add Components</h2>
+
+          <div class="form-group">
+            <label for="part-numbers">JLCPCB Part Number(s)</label>
+            <input type="text" id="part-numbers" placeholder="C1337258 C24112" />
+          </div>
+
+          <button id="add-btn" type="button" class="primary">Add to Library</button>
+
+          <div class="progress-wrapper">
+            <div class="progress-bar" id="progress-bar"></div>
+          </div>
+
+          <div class="status" id="status">Ready</div>
+        </section>
+      </main>
+
+      <section class="log-panel">
+        <div class="log-header">
+          <h2>Log</h2>
+          <button id="clear-log-btn" type="button" class="secondary small">Clear</button>
+        </div>
+        <pre id="log-output"></pre>
+      </section>
+    </div>
+  </body>
+</html>

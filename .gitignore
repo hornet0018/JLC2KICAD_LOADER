@@ -1,0 +1,17 @@
+.venv/
+__pycache__/
+*.pyc
+.test_output/
+*.log
+
+# PyInstaller sidecar build artifacts
+/build/
+/dist/
+*.spec
+
+# Tauri build artifacts
+tauri-gui/src-tauri/target/
+tauri-gui/node_modules/
+tauri-gui/dist/
+tauri-gui/src-tauri/binaries/
+
