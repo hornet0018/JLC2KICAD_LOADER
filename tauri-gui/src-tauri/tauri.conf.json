@@ -1,6 +1,6 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "JLC2KiCadLib",
+  "productName": "JLC2KICAD_LOADER",
   "version": "0.1.0",
   "identifier": "com.jlc2kicadlib.gui",
   "build": {
@@ -10,7 +10,7 @@
     "withGlobalTauri": true,
     "windows": [
       {
-        "title": "JLC2KiCadLib",
+        "title": "JLC2KICAD_LOADER",
         "width": 1100,
         "height": 800,
         "minWidth": 800,
